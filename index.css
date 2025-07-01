@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(210, 30%, 12%);
+  --muted: hsl(210, 15%, 95%);
+  --muted-foreground: hsl(210, 10%, 45%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(210, 30%, 12%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(210, 30%, 12%);
+  --border: hsl(210, 15%, 90%);
+  --input: hsl(210, 15%, 90%);
+  --primary: hsl(180, 65%, 45%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(210, 15%, 95%);
+  --secondary-foreground: hsl(210, 30%, 12%);
+  --accent: hsl(210, 15%, 95%);
+  --accent-foreground: hsl(210, 30%, 12%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(180, 65%, 45%);
+  --radius: 0.5rem;
+
+  /* Onebeat Brand Colors */
+  --onebeat-teal: hsl(180, 65%, 45%);
+  --onebeat-coral: hsl(10, 85%, 65%);
+  --onebeat-navy: hsl(210, 45%, 20%);
+  --onebeat-purple: hsl(285, 75%, 70%);
+  --onebeat-pink: hsl(320, 85%, 85%);
+  --onebeat-gray: hsl(210, 10%, 92%);
+
+  /* Glassmorphism custom properties */
+  --glass-bg: hsla(180, 65%, 45%, 0.08);
+  --glass-border: hsla(180, 65%, 45%, 0.15);
+  --glass-dark-bg: hsla(210, 45%, 20%, 0.1);
+  --glass-dark-border: hsla(180, 65%, 45%, 0.2);
+  
+  /* Clean subtle gradients */
+  --gradient-primary: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  --gradient-secondary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --gradient-tertiary: linear-gradient(135deg, #fafafa 0%, #f4f4f5 100%);
+  --gradient-quaternary: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  /* Clean card effects */
+  .glass {
+    background: white;
+    border: 1px solid hsl(220, 13%, 91%);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .glass-dark {
+    background: white;
+    border: 1px solid hsl(220, 13%, 91%);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .glass-strong {
+    background: white;
+    border: 1px solid hsl(220, 13%, 91%);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-tertiary {
+    background: var(--gradient-tertiary);
+  }
+
+  .gradient-quaternary {
+    background: var(--gradient-quaternary);
+  }
+
+  /* Animation utilities */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px hsla(0, 0%, 0%, 0.1);
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 4px hsla(0, 0%, 0%, 0.3);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 100%, 0.1);
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 100%, 0.3);
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsla(0, 0%, 100%, 0.5);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+@keyframes glow {
+  from { 
+    box-shadow: 0 0 20px hsla(207, 90%, 54%, 0.3); 
+  }
+  to { 
+    box-shadow: 0 0 30px hsla(207, 90%, 54%, 0.6); 
+  }
+}
+
+/* Card hover effects */
+.battle-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.battle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px hsla(0, 0%, 0%, 0.1);
+}
+
+/* Capability matrix styling */
+.capability-cell {
+  transition: all 0.2s ease;
+}
+
+.capability-cell:hover {
+  background: hsla(0, 0%, 100%, 0.1);
+  transform: scale(1.05);
+}
+
+/* Filter button active state */
+.filter-active {
+  background: hsla(0, 0%, 100%, 0.2) !important;
+  box-shadow: 0 0 20px hsla(207, 90%, 54%, 0.3);
+}
+
+/* Loading animations */
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
